@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10131d">
+<title>MUEEN STUDY 12 | UP Board 2026–27</title>
+<style>
+:root{--bg:#0c1019;--panel:#151c2b;--panel2:#1c2638;--gold:#e8c477;--text:#f4f5f8;--muted:#aab4c5;--line:#2b3548;--green:#70d6a0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#202c42 0,#0c1019 42%);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif}
+header{padding:24px 18px 20px;background:linear-gradient(135deg,#182338,#10131d);border-bottom:1px solid var(--line)}
+.wrap{max-width:1050px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-size:12px;letter-spacing:2px;color:var(--gold);font-weight:800}.session{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:7px 10px;border-radius:20px}
+h1{font-size:clamp(27px,6vw,44px);margin:12px 0 4px;line-height:1.12}header p{color:var(--muted);margin:8px 0 0;max-width:650px}
+main{padding:18px;max-width:1050px;margin:auto}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px}.stat,.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:14px}.stat b{display:block;color:var(--gold);font-size:22px}.stat span{font-size:12px;color:var(--muted)}
+.subjects{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}.subject{cursor:pointer;text-align:left;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px;min-height:112px}.subject.active{border-color:var(--gold);background:linear-gradient(145deg,#29334a,#171e2d)}.subject .ico{font-size:24px}.subject strong{display:block;margin:8px 0 3px}.subject small{color:var(--muted)}
+.controls{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.search{flex:1;min-width:180px;background:#0f1521;border:1px solid var(--line);border-radius:12px;color:white;padding:12px;font-size:15px}
+button,.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px 13px;border-radius:11px;font-size:14px;cursor:pointer;text-decoration:none}button.primary{background:var(--gold);color:#171717;border-color:var(--gold);font-weight:800}button:active{transform:scale(.98)}
+.tabs{display:flex;gap:7px;overflow:auto;padding:3px 0 10px}.tab{white-space:nowrap}.tab.active{background:var(--gold);color:#161616;border-color:var(--gold);font-weight:700}
+.list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.lesson{display:flex;align-items:center;gap:12px;text-align:left;width:100%;padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;color:var(--text)}.num{width:34px;height:34px;border-radius:10px;background:#29344a;color:var(--gold);display:grid;place-items:center;flex-shrink:0;font-weight:800}.lesson small{display:block;color:var(--muted);margin-top:4px}.lesson .tick{margin-left:auto;color:var(--green)}
+.content{margin-top:16px;padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:17px;display:none}.content.show{display:block}.content h2{margin:0 0 10px;color:var(--gold)}.content h3{margin:18px 0 7px;font-size:16px}.content p,.content li{color:#dce2ec;line-height:1.75}.note{border-left:3px solid var(--gold);background:#202a3b;padding:12px;border-radius:8px;margin:12px 0}.muted{color:var(--muted);font-size:13px}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.links a{color:var(--gold);font-size:13px}.progress{height:7px;background:#30394a;border-radius:20px;overflow:hidden;margin-top:8px}.progress span{display:block;height:100%;background:var(--green);width:0}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:25px 15px}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:16px;z-index:5}.modal.show{display:flex}.dialog{max-width:560px;width:100%;max-height:88vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}.dialog textarea{width:100%;min-height:180px;background:#0d1420;color:white;border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit}
+@media(max-width:650px){.stats{gap:7px}.stat{padding:10px}.stat b{font-size:18px}.subjects{gap:7px}.subject{padding:11px;min-height:100px}.list{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <div class="top"><div class="brand">MUEEN • DIGITAL LEARNING</div><div class="session">UP BOARD · 2026–27</div></div>
+ <h1>MUEEN STUDY <span style="color:var(--gold)">12</span></h1>
+ <p>कक्षा 12 के English, Hindi और Sanskrit के लिए पाठ्यक्रम, हिंदी में समझ, व्याकरण, अभ्यास और अपनी पढ़ाई की प्रगति।</p>
+</div></header>
+<main>
+ <div class="stats">
+  <div class="stat"><b>03</b><span>मुख्य विषय</span></div>
+  <div class="stat"><b id="doneCount">0</b><span>पढ़े हुए पाठ</span></div>
+  <div class="stat"><b id="totalCount">0</b><span>कुल सूचीबद्ध पाठ</span></div>
+ </div>
+ <div class="subjects" id="subjects">
+  <button class="subject active" data-sub="english"><span class="ico">📘</span><strong>English</strong><small>हिंदी अनुवाद व साहित्य</small></button>
+  <button class="subject" data-sub="hindi"><span class="ico">📙</span><strong>Hindi</strong><small>गद्य, पद्य, कहानी व संस्कृत खंड</small></button>
+  <button class="subject" data-sub="sanskrit"><span class="ico">📗</span><strong>Sanskrit</strong><small>अनुवाद, व्याख्या व व्याकरण</small></button>
+ </div>
+ <div class="panel">
+  <div class="top"><div><b id="subjectTitle">English</b><div class="muted" id="subjectDesc">पाठ्यक्रम और अभ्यास</div></div><button id="addBtn">＋ अपनी सामग्री जोड़ें</button></div>
+  <div class="progress"><span id="progressBar"></span></div>
+  <div class="controls"><input id="search" class="search" placeholder="पाठ या विषय खोजें…"><button id="resetSearch">रीसेट</button></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="list" id="lessonList"></div>
+ </div>
+ <section class="content" id="reader">
+  <div class="top"><div class="muted" id="crumb"></div><button id="markBtn">✓ पढ़ लिया</button></div>
+  <h2 id="lessonTitle"></h2><div id="lessonBody"></div>
+ </section>
+ <div class="panel" style="margin-top:16px">
+  <h3 style="margin:0 0 8px;color:var(--gold)">आधिकारिक UPMSP पाठ्यक्रम</h3>
+  <p class="muted">UPMSP के 2026–27 पाठ्यक्रम के अनुसार हिन्दी (101) और सामान्य हिन्दी (102) दोनों की सूची ऐप में अलग-अलग समूहों में जोड़ी गई है। अपने विद्यालय में दर्ज विषय के अनुसार वही समूह पढ़ें। पाठ्यक्रम सूची और अध्याय शामिल हैं; प्रत्येक साहित्यिक पाठ का पूरा स्वतंत्र अनुवाद/व्याख्या अभी अलग-अलग तैयार किया जाना है।</p>
+  <div class="links">
+   <a target="_blank" href="https://upmsp.edu.in/Downloads/Syllabus/Class12/117-English-Class-12.pdf">English PDF (117)</a>
+   <a target="_blank" href="https://upmsp.edu.in/Downloads/Syllabus/Class12/101-Hindi-Class-12.pdf">Hindi PDF (101)</a>
+   <a target="_blank" href="https://upmsp.edu.in/Downloads/Syllabus/Class12/102-General-Hindi-Class-12.pdf">General Hindi PDF (102)</a>
+   <a target="_blank" href="https://upmsp.edu.in/Downloads/Syllabus/Class12/103-Sanskrit-Class-12.pdf">Sanskrit PDF (103)</a>
+   <a target="_blank" href="https://upmsp.edu.in/Board_Syllabus.aspx">UPMSP Syllabus Portal</a>
+  </div>
+ </div>
+</main>
+<footer>Made for learning • MUEEN STUDY 12 • Offline-ready after first opening</footer>
+<div class="modal" id="modal"><div class="dialog">
+ <div class="top"><b style="color:var(--gold)">अपनी अध्ययन सामग्री</b><button id="closeModal">✕</button></div>
+ <p class="muted">किसी पाठ के लिए अपने नोट्स, शिक्षक के समझाए हुए बिंदु या स्वयं लिखा अनुवाद जोड़ें। यह इसी डिवाइस के ब्राउज़र में सेव होगा।</p>
+ <input id="customTitle" class="search" placeholder="पाठ का नाम" style="width:100%;margin:8px 0">
+ <select id="customSub" class="search" style="width:100%;margin:0 0 8px"><option value="english">English</option><option value="hindi">Hindi</option><option value="sanskrit">Sanskrit</option></select>
+ <textarea id="customText" placeholder="यहाँ अपने नोट्स लिखें…"></textarea>
+ <div class="controls"><button class="primary" id="saveCustom">सेव करें</button><button id="exportBtn">नोट्स Export करें</button><button id="importBtn">Import JSON</button><input type="file" id="importFile" accept=".json,application/json" hidden></div>
+</div></div>
+<script>
+const official={
+english:{
+ name:"English",desc:"UPMSP Code 117 • 100 अंक • Reading 15 • Writing 20 • Grammar 25 • Literature 40",
+ groups:{
+ "Reading (15 अंक)":["One Long Unseen Passage — अपठित गद्यांश","Very Short Answer Questions — अति लघु उत्तरीय प्रश्न","Vocabulary Based Questions — शब्दावली आधारित प्रश्न"],
+ "Writing (20 अंक)":["Article: Descriptive — वर्णनात्मक लेख","Article: Argumentative — तर्कपूर्ण लेख","Article: Autobiographical — आत्मकथात्मक लेख","Letter to the Editor — संपादक को पत्र","Complaint Letter — शिकायत पत्र","Business Letter: Placing Orders — आदेश देने का व्यावसायिक पत्र","Business Letter: Booking/Cancellation — बुकिंग/रद्द करने का पत्र","Business Letter: Enquiry — पूछताछ पत्र"],
+ "Grammar (25 अंक)":["Narration — कथन परिवर्तन","Synthesis — वाक्य संयोजन","Transformation — वाक्य परिवर्तन","Syntax — वाक्य रचना","Idioms and Phrases — मुहावरे","Phrasal Verbs — वाक्यांश क्रियाएँ","Synonyms — समानार्थी शब्द","Antonyms — विलोम शब्द","One Word Substitution — अनेक शब्दों के लिए एक शब्द","Homophones — समान उच्चारण वाले भिन्नार्थक शब्द","Hindi to English Translation — हिन्दी से अंग्रेज़ी अनुवाद"],
+ "Flamingo: Prose":["The Last Lesson — अंतिम पाठ","Lost Spring — खोया हुआ बचपन/खोया वसंत","Deep Water — गहरा पानी","The Rattrap — चूहेदानी","Indigo — नील","Poets and Pancakes — कवि और पैनकेक","The Interview (Part I & II) — साक्षात्कार","Going Places — सपनों की दुनिया"],
+ "Flamingo: Poetry":["My Mother at Sixty-Six — छियासठ वर्ष की मेरी माँ","Keeping Quiet — मौन रहना","A Thing of Beauty — सुंदरता की एक वस्तु","A Roadside Stand — सड़क किनारे की दुकान","Aunt Jennifer’s Tigers — आंटी जेनिफर के बाघ"],
+ "Vistas: Supplementary Reader":["The Third Level — तीसरा स्तर","The Tiger King — बाघों का राजा","Journey to the End of the Earth — पृथ्वी के छोर तक की यात्रा","The Enemy — शत्रु","On the Face of It — प्रत्यक्ष रूप में","Memories of Childhood — बचपन की यादें"]
+ }},
+hindi:{
+ name:"Hindi (101 / General Hindi 102)",desc:"UPMSP Code 101 हिन्दी और Code 102 सामान्य हिन्दी — दोनों आधिकारिक विकल्प शामिल",
+ groups:{
+ "हिन्दी (101) — गद्य खण्ड":["राष्ट्र का स्वरूप — वासुदेवशरण अग्रवाल","रॉबर्ट नर्सिंग होम में — कन्हैयालाल मिश्र ‘प्रभाकर’","अशोक के फूल — आचार्य हजारीप्रसाद द्विवेदी","सिद्धांत और नीति (सम्पादित अंश) — पं. दीनदयाल उपाध्याय","भाषा और आधुनिकता — प्रो. जी. सुन्दर रेड्डी","तेजस्वी मन (सम्पादित अंश) — डॉ. ए.पी.जे. अब्दुल कलाम","भाग्य और पुरुषार्थ — जैनेन्द्र कुमार","निंदा रस — हरिशंकर परसाई"],
+ "हिन्दी (101) — कहानी खण्ड":["पंचलाइट — फणीश्वरनाथ ‘रेणु’","खून का रिश्ता — अमरकान्त","लाटी — शिवानी"],
+ "हिन्दी (101) — पद्य खण्ड":["प्रेम माधुरी — भारतेन्दु हरिश्चन्द्र","यमुना-छवि — भारतेन्दु हरिश्चन्द्र","उद्धव प्रसंग — जगन्नाथदास ‘रत्नाकर’","गंगावतरण — जगन्नाथदास ‘रत्नाकर’","पवन-दूतिका — अयोध्यासिंह उपाध्याय ‘हरिऔध’","कैकेयी का अनुताप — मैथिलीशरण गुप्त","गीत — मैथिलीशरण गुप्त","गीत — जयशंकर प्रसाद","श्रद्धा-मनु — जयशंकर प्रसाद","बादल-राग — सूर्यकान्त त्रिपाठी ‘निराला’","संध्या-सुन्दरी — सूर्यकान्त त्रिपाठी ‘निराला’","नौका-विहार — सुमित्रानन्दन पंत","बापू के प्रति — सुमित्रानन्दन पंत","परिवर्तन — सुमित्रानन्दन पंत","गीत — महादेवी वर्मा","अभिनव-मनुष्य — रामधारी सिंह ‘दिनकर’","पुरुरवा — रामधारी सिंह ‘दिनकर’","उर्वशी — रामधारी सिंह ‘दिनकर’","मैंने आहुति बनकर देखा — अज्ञेय","हिरोशिमा — अज्ञेय","मधु की एक बूंद — नरेन्द्र शर्मा","बूँद टपकी एक नभ से — भवानीप्रसाद मिश्र","मुझे कदम-कदम पर — गजानन माधव मुक्तिबोध","चित्रमय धरती — गिरिजाकुमार माथुर","साँझ के बादल — धर्मवीर भारती"],
+ "हिन्दी (101) — खण्डकाव्य":["मुक्ति यज्ञ — सुमित्रानन्दन पंत","सत्य की जीत — द्वारिका प्रसाद माहेश्वरी","रश्मिरथी — रामधारी सिंह ‘दिनकर’","आलोकवृत्त — गुलाब खण्डेलवाल","त्यागपथी — रमेश्वर शुक्ल ‘अंचल’","श्रवण कुमार — शिवबालक शुक्ल"],
+ "हिन्दी (101) — संस्कृत दिग्दर्शिका":["भोजस्यौदार्यम्","संस्कृत भाषायाः महत्त्वम्","आत्मज्ञः एवं सर्वज्ञः","ऋतुवर्णनम्","जातक कथा","नृपतिः दिलीपः","महर्षि दयानन्दः","सुभाषितरत्नानि","महामना मालवीयः","पञ्चशीलसिद्धान्ताः","दूतवाक्यम्"],
+ "हिन्दी (101) — इतिहास व काव्यशास्त्र":["हिन्दी गद्य का उद्भव एवं विकास","शुक्ल युग और शुक्लोत्तर युग","निबन्ध, उपन्यास, कहानी और आलोचना","भारतेन्दु युग","द्विवेदी युग","छायावाद","प्रगतिवाद","नई कविता","रस: परिभाषा, उदाहरण एवं पहचान","शब्दालंकार: अनुप्रास, यमक, श्लेष","अर्थालंकार: उपमा, रूपक, उत्प्रेक्षा, सन्देह, भ्रान्तिमान, अनन्वय, प्रतीप, दृष्टान्त, अतिशयोक्ति","छन्द: चौपाई, दोहा, सोरठा, रोला, कुण्डलिया, हरिगीतिका, बरवै","वर्णवृत्त: इन्द्रवज्रा, उपेन्द्रवज्रा, सवैया, मत्तगयन्द, सुमुखी, सुन्दरी, वसन्ततिलका","मुक्तक: मनहर"],
+ "हिन्दी (101) — व्याकरण व लेखन":["संस्कृत सन्धि: स्वर, व्यंजन और विसर्ग","समास: अव्ययीभाव, कर्मधारय, बहुव्रीहि","कृत प्रत्यय: क्त, क्त्वा, तव्यत्, अनीयर्","तद्धित प्रत्यय: त्व, मतुप्, वतुप्","विभक्ति परिचय एवं प्रयोग","औपचारिक पत्र: आवेदन, प्रार्थना, कार्यालयी एवं व्यावसायिक","अनौपचारिक पत्र: व्यक्तिगत, पारिवारिक एवं सामाजिक","निबन्ध: जनसंख्या, पर्यावरण, स्वास्थ्य शिक्षा, यातायात आदि"],
+ "सामान्य हिन्दी (102) — गद्य खण्ड":["राष्ट्र का स्वरूप — वासुदेवशरण अग्रवाल","अशोक के फूल — आचार्य हजारीप्रसाद द्विवेदी","भाषा और आधुनिकता — प्रो. जी. सुन्दर रेड्डी","तेजस्वी मन (सम्पादित अंश) — डॉ. ए.पी.जे. अब्दुल कलाम","रॉबर्ट नर्सिंग होम में — कन्हैयालाल मिश्र ‘प्रभाकर’","निंदा रस — हरिशंकर परसाई"],
+ "सामान्य हिन्दी (102) — पद्य खण्ड":["पवन-दूतिका — अयोध्यासिंह उपाध्याय ‘हरिऔध’","कैकेयी का अनुताप — मैथिलीशरण गुप्त","गीत — मैथिलीशरण गुप्त","श्रद्धा-मनु — जयशंकर प्रसाद","गीत — जयशंकर प्रसाद","नौका-विहार — सुमित्रानन्दन पंत","बापू के प्रति — सुमित्रानन्दन पंत","परिवर्तन — सुमित्रानन्दन पंत","गीत — महादेवी वर्मा","अभिनव-मनुष्य — रामधारी सिंह ‘दिनकर’","पुरुरवा — रामधारी सिंह ‘दिनकर’","उर्वशी — रामधारी सिंह ‘दिनकर’","मैंने आहुति बनकर देखा — अज्ञेय","हिरोशिमा — अज्ञेय"],
+ "सामान्य हिन्दी (102) — कहानी खण्ड":["ध्रुव यात्रा — जैनेन्द्र कुमार","पंचलाइट — फणीश्वरनाथ ‘रेणु’","लाटी — शिवानी"],
+ "सामान्य हिन्दी (102) — खण्डकाव्य":["मुक्ति यज्ञ — सुमित्रानन्दन पंत","सत्य की जीत — द्वारिका प्रसाद माहेश्वरी","रश्मिरथी — रामधारी सिंह ‘दिनकर’","आलोकवृत्त — गुलाब खण्डेलवाल","त्यागपथी — रमेश्वर शुक्ल ‘अंचल’","श्रवण कुमार — शिवबालक शुक्ल"],
+ "सामान्य हिन्दी (102) — संस्कृत खण्ड":["भोजस्यौदार्यम्","आत्मज्ञः एवं सर्वज्ञः","संस्कृत भाषायाः महत्त्वम्","जातक कथा","सुभाषितरत्नानि","महामना मालवीयः","पञ्चशीलसिद्धान्ताः"],
+ "सामान्य हिन्दी (102) — व्याकरण व लेखन":["हिन्दी गद्य का इतिहास एवं विकास","हिन्दी काव्य का इतिहास: भारतेन्दु युग से नई कविता तक","लोकोक्तियाँ एवं मुहावरे: अर्थ और वाक्य प्रयोग","शब्दों में सूक्ष्म अन्तर","अनेकार्थी शब्द","अनेक शब्दों के लिए एक शब्द","वाक्य शुद्धि: लिंग, वचन, कारक, काल, वर्तनी","रस: शृंगार, करुण, हास्य, वीर, शान्त","अलंकार: अनुप्रास, यमक, श्लेष, उपमा, रूपक, उत्प्रेक्षा, भ्रान्तिमान, सन्देह","छन्द: चौपाई, दोहा, सोरठा, कुण्डलिया","पत्र लेखन: नियुक्ति आवेदन, बैंक ऋण आवेदन, सफाई हेतु प्रार्थना पत्र","निबन्ध: विज्ञान, वाणिज्य, शिक्षा, कृषि, सामाजिक-राजनीतिक चेतना, जनसंख्या, स्वास्थ्य, पर्यावरण","अपठित गद्यांश एवं पद्यांश"]
+ }},
+sanskrit:{
+ name:"Sanskrit",desc:"UPMSP Code 103 • 100 अंक • गद्य 20 • पद्य 20 • नाटक 20 • निबन्ध 10 • अलंकार 2 • व्याकरण 28",
+ groups:{
+ "गद्य: कादम्बरी-सारभूता चन्द्रापीडकथा":["चन्द्रापीडकथा — उत्तरार्ध (निर्धारित अंश: ‘सा तु समुत्थाय महाश्वेताम्…’ से अन्त तक)"],
+ "पद्य: रघुवंश महाकाव्य":["रघुवंशम् — द्वितीय सर्ग, श्लोक 41 से अन्त तक"],
+ "नाटक: अभिज्ञानशाकुन्तलम्":["अभिज्ञानशाकुन्तलम् — चतुर्थ अंक (निर्धारित अंश: ‘आकाशे रम्यान्तरः कमलिनीहरितैः…’ से अन्त तक)"],
+ "संस्कृत निबन्ध (10 पंक्तियाँ)":["सदाचारः","सत्संगतिः","परोपकारः","विद्याधनं सर्वधनप्रधानम्","संस्कृतभाषायाः महत्त्वम्","पर्यावरणसुरक्षा","महाकविकालिदासः","श्रम एव जयते","अहिंसा परमो धर्मः","भारतदेशः","जनसंख्या-समस्या","स्वास्थ्यशिक्षा","यातायातसुरक्षा","स्वच्छताभियानम्"],
+ "अलंकार":["उपमा अलंकार","रूपक अलंकार"],
+ "व्याकरण एवं अनुवाद":["हिन्दी से संस्कृत अनुवाद: उपपद विभक्तियों का प्रयोग","कारक एवं विभक्ति: चतुर्थी, पंचमी, षष्ठी, सप्तमी","समास: द्वन्द्व, अव्ययीभाव, द्विगु","सन्धि, सन्धि-विच्छेद एवं नियम","शब्दरूप: नपुंसकलिंग — गृह, वारि, दधि, मधु, नामन्, मनस्, जगत्, ब्रह्मन्, धनुस्","सर्वनाम शब्दरूप — सर्व, तद्, यद्, किम्, युष्मद्, अस्मद्, इदम्, एतद्, अदस्, भवत्","संख्यावाचक शब्द 1 से 100 और कति के रूप","धातुरूप: लट्, लङ्, लोट्, विधिलिङ्, लृट्","आत्मनेपदी धातु: सेव्, लभ्, वृध्, भाष्, शी, विद्","उभयपदी धातु: नी, याच्, दा, ग्रह्, ज्ञा, चुर्, श्री, क्री, धा","प्रत्यय: ल्युट्, ण्वुल्, तुमुन्, क्त्वा, अनीयर्, टाप्, ङीष्","वाच्य परिवर्तन: कर्तृवाच्य, कर्मवाच्य, भाववाच्य"]
+ }}
+};
+const samples={
+"The Last Lesson":{heading:"पाठ का सरल हिंदी सार",summary:"यह कहानी फ्रांसीसी भाषा और मातृभाषा के महत्व को सामने लाती है। फ्रांस के अलसास क्षेत्र में आदेश जारी होने के बाद स्कूल में फ्रेंच की जगह जर्मन पढ़ाई जानी थी। शिक्षक M. Hamel का अंतिम पाठ विद्यार्थियों और गाँव के लोगों को अपनी भाषा के प्रति प्रेम और जिम्मेदारी का एहसास कराता है।",points:["भाषा किसी समाज की पहचान और संस्कृति का महत्वपूर्ण आधार है।","कहानी में पछतावा, देशप्रेम और शिक्षा का महत्व प्रमुख हैं।","मुख्य पात्र: फ्रांज और M. Hamel।"],words:"Last = अंतिम • Lesson = पाठ • Native language = मातृभाषा • Regret = पछतावा"},
+"भोजस्यौदार्यम्":{heading:"सरल परिचय",summary:"यह संस्कृत पाठ राजा भोज की उदारता और दानशीलता के आदर्श को प्रस्तुत करता है। पाठ का अध्ययन करते समय शब्दार्थ, वाक्य-अनुवाद और प्रसंग को साथ-साथ समझें।",points:["उदारता का अर्थ है दूसरों की सहायता करने का गुण।","पाठ से परोपकार और विनम्रता की प्रेरणा मिलती है।"],words:"उदारः = दानी/उदार • राजा = नरेश • दानम् = दान"},
+"उपमा अलंकार":{heading:"परिभाषा और उदाहरण",summary:"जहाँ किसी व्यक्ति या वस्तु की समानता किसी दूसरी वस्तु से ‘सा’, ‘सी’, ‘समान’, ‘जैसे’ आदि शब्दों द्वारा बताई जाती है, वहाँ उपमा अलंकार होता है।",points:["उदाहरण: उसका मुख चन्द्रमा के समान सुंदर है।","उपमेय: जिसका वर्णन हो रहा है — मुख।","उपमान: जिससे तुलना की गई — चन्द्रमा।","वाचक शब्द: के समान।"],words:"उपमेय = जिसकी तुलना हो • उपमान = जिससे तुलना हो"}
+};
+let current="english",currentGroup="सभी",currentLesson=null;
+const custom=JSON.parse(localStorage.getItem("mueenCustom")||"[]");
+const done=new Set(JSON.parse(localStorage.getItem("mueenDone")||"[]"));
+const $=id=>document.getElementById(id);
+function allLessons(sub){let out=[];Object.entries(official[sub].groups).forEach(([g,arr])=>arr.forEach((title,i)=>out.push({title,group:g,index:i+1})));custom.filter(x=>x.sub===sub).forEach(x=>out.push({title:x.title,group:"मेरे नोट्स",custom:true,text:x.text}));return out}
+function render(){
+ document.querySelectorAll(".subject").forEach(b=>b.classList.toggle("active",b.dataset.sub===current));
+ $("subjectTitle").textContent=official[current].name;$("subjectDesc").textContent=official[current].desc;
+ const groups=["सभी",...Object.keys(official[current].groups),...(custom.some(x=>x.sub===current)?["मेरे नोट्स"]:[])];
+ $("tabs").innerHTML=groups.map(g=>`<button class="tab ${g===currentGroup?"active":""}" data-group="${g}">${g}</button>`).join("");
+ const q=$("search").value.trim().toLowerCase();
+ const lessons=allLessons(current).filter(x=>(currentGroup==="सभी"||x.group===currentGroup)&&(!q||(x.title+" "+x.group).toLowerCase().includes(q)));
+ $("lessonList").innerHTML=lessons.map((x,i)=>{let key=current+"|"+x.group+"|"+x.title;return `<button class="lesson" data-title="${encodeURIComponent(x.title)}" data-group="${encodeURIComponent(x.group)}"><span class="num">${i+1}</span><span><b>${x.title}</b><small>${x.group}</small></span><span class="tick">${done.has(key)?"✓":""}</span></button>`}).join("")||'<p class="muted">कोई पाठ नहीं मिला।</p>';
+ let total=allLessons(current).length,completed=allLessons(current).filter(x=>done.has(current+"|"+x.group+"|"+x.title)).length;
+ $("totalCount").textContent=Object.keys(official).reduce((n,s)=>n+allLessons(s).length,0);$("doneCount").textContent=done.size;
+ $("progressBar").style.width=(total?completed/total*100:0)+"%";
+ $("reader").classList.remove("show");
+}
+function openLesson(title,group){
+ let lesson=allLessons(current).find(x=>x.title===title&&x.group===group);if(!lesson)return;
+ currentLesson={title,group};$("reader").classList.add("show");$("crumb").textContent=official[current].name+" / "+group;$("lessonTitle").textContent=title;
+ let sample=samples[title];
+ if(lesson.custom){$("lessonBody").innerHTML=`<h3>आपके सेव किए हुए नोट्स</h3><p>${escapeHTML(lesson.text).replace(/\n/g,"<br>")}</p>`}
+ else if(sample){$("lessonBody").innerHTML=`<h3>${sample.heading}</h3><div class="note">${sample.summary}</div><h3>याद रखने योग्य बातें</h3><ul>${sample.points.map(p=>`<li>${p}</li>`).join("")}</ul><h3>शब्दार्थ</h3><p>${sample.words}</p><p class="muted">यह संक्षिप्त मौलिक अध्ययन-सहायता है, पुस्तक का शब्दशः अनुवाद नहीं।</p>`}
+ else {$("lessonBody").innerHTML=`<div class="note">यह पाठ 2026–27 की पाठ्यक्रम सूची में शामिल है। इस संस्करण में इस पाठ का पूरा अध्यायवार अनुवाद/व्याख्या अभी भरी नहीं गई है। आधिकारिक पुस्तक से पाठ पढ़ें और नीचे “अपनी सामग्री जोड़ें” से अपने नोट्स सेव करें।</div><h3>इस पाठ की तैयारी कैसे करें?</h3><ul><li>पाठ का मूल भाव और मुख्य घटनाएँ लिखें।</li><li>कठिन शब्दों के अर्थ अपनी कॉपी में जोड़ें।</li><li>महत्वपूर्ण प्रश्नों के उत्तर अपने शब्दों में तैयार करें।</li><li>शिक्षक द्वारा बताए गए परीक्षा-उपयोगी अंशों को दोहराएँ।</li></ul>`}
+ $("markBtn").textContent=done.has(current+"|"+group+"|"+title)?"✓ पढ़ लिया गया":"✓ पढ़ लिया";
+ $("reader").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+document.querySelectorAll(".subject").forEach(b=>b.onclick=()=>{current=b.dataset.sub;currentGroup="सभी";render()});
+$("tabs").onclick=e=>{let b=e.target.closest("[data-group]");if(b){currentGroup=b.dataset.group;render()}};
+$("lessonList").onclick=e=>{let b=e.target.closest(".lesson");if(b)openLesson(decodeURIComponent(b.dataset.title),decodeURIComponent(b.dataset.group))};
+$("search").oninput=render;$("resetSearch").onclick=()=>{$("search").value="";currentGroup="सभी";render()};
+$("markBtn").onclick=()=>{if(!currentLesson)return;let k=current+"|"+currentLesson.group+"|"+currentLesson.title;done.has(k)?done.delete(k):done.add(k);localStorage.setItem("mueenDone",JSON.stringify([...done]));render();openLesson(currentLesson.title,currentLesson.group)};
+$("addBtn").onclick=()=>{$("customSub").value=current;$("modal").classList.add("show")};
+$("closeModal").onclick=()=>$("modal").classList.remove("show");
+$("saveCustom").onclick=()=>{let title=$("customTitle").value.trim(),text=$("customText").value.trim(),sub=$("customSub").value;if(!title||!text){alert("पाठ का नाम और नोट्स दोनों भरें।");return}custom.push({title,text,sub});localStorage.setItem("mueenCustom",JSON.stringify(custom));$("customTitle").value="";$("customText").value="";$("modal").classList.remove("show");current=sub;currentGroup="मेरे नोट्स";render();openLesson(title,"मेरे नोट्स")};
+$("exportBtn").onclick=()=>{let blob=new Blob([JSON.stringify({custom,done:[...done]},null,2)],{type:"application/json"});let a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mueen-study12-notes.json";a.click();URL.revokeObjectURL(a.href)};
+$("importBtn").onclick=()=>$("importFile").click();
+$("importFile").onchange=async e=>{try{let d=JSON.parse(await e.target.files[0].text());if(Array.isArray(d.custom)){custom.splice(0,custom.length,...d.custom);localStorage.setItem("mueenCustom",JSON.stringify(custom))}if(Array.isArray(d.done)){done.clear();d.done.forEach(x=>done.add(x));localStorage.setItem("mueenDone",JSON.stringify([...done]))}alert("नोट्स Import हो गए।");render()}catch(err){alert("यह JSON फाइल सही नहीं है।")}};
+render();
+</script>
+</body></html>
